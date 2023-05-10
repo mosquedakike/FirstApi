@@ -9,8 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddScoped<IHelloWorldservice, HelloWorldService>();
 builder.Services.AddScoped<IHelloWorldservice, HelloWorldService>();
+//builder.Services.AddScoped<IHelloWorldservice>(p => new HelloWorldService());
 
 var app = builder.Build();
 
