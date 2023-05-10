@@ -1,7 +1,10 @@
-﻿using FirstWebAPI.Services;
+﻿using System.Dynamic;
+using FirstWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstWebAPI.Controllers;
+
+
 [ApiController]
 [Route("api/[controller]")]
 public class HelloWorldController: ControllerBase
@@ -10,11 +13,13 @@ public class HelloWorldController: ControllerBase
 
     public HelloWorldController(IHelloWorldservice helloWorldservice)
     {
-        helloWorldservice = _helloWorldservice;
+        _helloWorldservice = helloWorldservice;
     }
 
+    [HttpGet]
     public IActionResult Get()
     {
         return Ok(_helloWorldservice.GetHelloWorld());
     }
+    
 }
